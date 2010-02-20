@@ -62,8 +62,10 @@ ErlDocs = function() {
         } else if( e.keyCode == 38 ) {    //UP
 	        setSelected(selected - 1, false);
         } else if ( e.keyCode == 13 ) { //ENTER
-            document.location.href =
-                results.children(".selected").find("a").attr("href");
+            var selected = results.children(".selected");
+            if ( selected.length > 0 ) {
+                document.location.href = selected.find("a").attr("href");
+            }
         } else {
 	        filter(search.val());
         }
